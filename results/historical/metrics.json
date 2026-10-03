@@ -1,0 +1,25 @@
+{
+  "status": "historical_not_reproduced",
+  "project_dates": "January\u2013April 2024",
+  "source_sha256": {
+    "APS360_Music_Genre_Classification_System.ipynb": "d87e83d4a6c64fa076e13bb266b968debac40a4619a1d337bfb4833a63b6bc0b",
+    "annotated-APS360_FianlReport_Group-1.pdf": "4cf9ad69984f5daa769794fc5f0f97d98ccf8646c5e43bd5231e652da98f114d"
+  },
+  "cnn": {
+    "train_accuracy": 0.7752346193952033,
+    "validation_accuracy": 0.6594712967307993,
+    "test_accuracy": 0.6935105551211884,
+    "test_macro_f1_separate_pass": 0.6914,
+    "recorded_slices": 31968,
+    "split_unit": "slice_with_source_track_overlap_possible"
+  },
+  "random_forest": {
+    "validation_accuracy": 0.7937937937937938,
+    "split": "80/10/10 numeric segment rows"
+  },
+  "external": {
+    "stored_accuracy": 0.6535105551211884,
+    "verified": false,
+    "reason": "Assets, evaluated count, and portable label mapping unavailable"
+  }
+}

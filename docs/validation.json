@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-03",
+  "python": "3.12.14",
+  "platform": "Linux CPU",
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0",
+    "scikit-learn": "1.9.1",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "librosa": "0.11.0",
+    "soundfile": "0.14.0",
+    "nbformat": "5.11.1"
+  },
+  "checks": {
+    "unit_tests": 8,
+    "cli_integration": "passed on synthetic images/features",
+    "audio_conversion": "passed on generated 1-second tone",
+    "notebook_schema": "both valid"
+  },
+  "real_dataset_training": "not run",
+  "github_actions": "configured; hosted run not yet verified"
+}
