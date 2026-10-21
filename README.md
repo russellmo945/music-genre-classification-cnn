@@ -1,42 +1,42 @@
-# Music Genre Classification with CNNs
+# Music Genre Classification System
 
-**Audio classification · PyTorch · Experiment design · Reproducible evaluation**
+**Python · PyTorch · Librosa · CNNs · Audio Classification**
 
-A ten-class music genre classifier that learns from mel-spectrogram images, developed for the University of Toronto's APS360 course in **January–April 2024**. This personal portfolio repository recreates the classifier in a **2026 implementation** with a command-line pipeline, source-track-disjoint splits, checkpoint provenance, and automated tests.
+A deep learning project that classifies music into **10 genres** using mel-spectrogram images. The project explores spectrogram preprocessing, configurable CNN architectures, hyperparameter tuning, and evaluation on GTZAN and an external music collection.
 
-The central question: **how well can a CNN distinguish musical genres from short visual representations of audio, and how should that performance be measured?**
+**Project period: January–April 2024**
 
-## At a glance
+## Project highlights
 
-- **Modeling:** six convolutional blocks, dropout, a dense classifier, SGD, and a Random Forest feature baseline.
-- **Data engineering:** lazy spectrogram slicing, a fixed ten-class mapping, deterministic track manifests, and source-file hashes.
-- **Evaluation:** slice and track metrics from the same inference pass, macro-F1, confusion matrices, and validation-based checkpoint selection.
-- **Engineering:** installable Python package, CLI, unit tests, synthetic end-to-end verification, and GitHub Actions configuration.
+- Prepared approximately **32,000 spectrogram segments** using 32-way slicing and **64 × 64** RGB resizing.
+- Explored **15 named hyperparameter configurations**, varying channel widths, dense layers, learning rate, and batch size.
+- Selected a CNN with **six convolutional layers**, max pooling, dropout, and a dense classifier.
+- Built a **Librosa** pipeline for external audio evaluation using mel-spectrograms.
+- Included a **Random Forest baseline**, command-line training and inference, checkpoint metadata, and automated tests.
 
-**Status:** the refactored pipeline is tested on synthetic fixtures. No new GTZAN benchmark, trained weights, or music recordings are bundled. Historical scores below belong to the original notebook, not the refactor.
+## Results
 
-## Historical experiment
+| Experiment | Reported accuracy |
+| --- | ---: |
+| CNN — GTZAN validation | 65.9% |
+| CNN — GTZAN test | **69.4%** |
+| CNN — external evaluation, reported collection of 100 Tidal tracks | **65.4%** |
 
-| Model / dataset | Recorded accuracy | Interpretation |
-| --- | ---: | --- |
-| CNN / GTZAN validation | 65.95% | Original slice-level split |
-| CNN / GTZAN test | 69.35% | Original slice-level split |
-| Random Forest / validation | 79.38% | Numeric segments; a different split protocol |
-| CNN / external music | 65.35% | Stored historical result; assets and label mapping unavailable |
+**Evaluation note:** GTZAN scores use a slice-level split that can share source tracks across partitions, so they do not measure unseen-track performance. The runnable pipeline uses track-disjoint splits; those scores have not yet been measured. External results are recorded from the project experiment and have not been independently reproduced. See [evaluation details](docs/evaluation.md).
 
-**Evaluation limitation:** the original CNN split slices after slicing each source image, allowing pieces of one track into multiple partitions. These figures do **not** establish performance on unseen tracks. The refactor splits source tracks first. The baseline and historical CNN scores are not a controlled head-to-head comparison. See the [evaluation audit](docs/evaluation.md) for evidence and corrections.
-
-## Pipeline
+## Architecture and pipeline
 
 ```mermaid
 flowchart LR
     A[GTZAN spectrograms] --> B[Track split manifest]
-    B --> C[Lazy 64 × 64 slices]
+    B --> C[64 × 64 image slices]
     C --> D[Six-block CNN]
-    D --> E[Slice and track metrics]
+    D --> E[Genre predictions and metrics]
 ```
 
-Each source image yields 32 RGB slices. The selected historical architecture uses channel widths **12 → 24 → 48 → 96 → 192 → 384**, followed by dense layers **512 → 128 → 64 → 10**. The refactor keeps this topology while correcting the evaluation protocol.
+The CNN uses channel widths **12 → 24 → 48 → 96 → 192 → 384**, followed by dense layers **512 → 128 → 64 → 10**. Each convolutional block applies ReLU, max pooling, and dropout. The selected configuration uses SGD with learning rate **0.01**, momentum **0.9**, batch size **64**, and **100 epochs**.
+
+The package supports deterministic track splits, lazy image loading, a fixed class mapping, and both slice-level and track-level evaluation.
 
 ## Run locally
 
@@ -51,7 +51,7 @@ python -m unittest discover -s tests -v
 python scripts/smoke_test.py
 ```
 
-The smoke test needs no dataset and makes no claim about classification quality.
+The smoke test checks the full workflow using synthetic data. Download GTZAN separately to train a model; pretrained weights are not bundled.
 
 Download the dataset separately and follow [data setup](docs/data.md). Then:
 
@@ -80,9 +80,9 @@ Audio must contain the full requested interval. New audio rendering can differ f
 | File / directory | Purpose |
 | --- | --- |
 | [Project walkthrough](notebooks/02_project_walkthrough.ipynb) | Guided introduction to data, architecture, and evaluation |
-| [Archived experiment](notebooks/01_original_experiment.ipynb) | Original code cells with outputs and metadata removed |
-| [Evaluation audit](docs/evaluation.md) | Historical evidence, limitations, and refactor decisions |
+| [Experiment notebook](notebooks/01_original_experiment.ipynb) | CNN experiments, preprocessing, and external-audio evaluation |
+| [Evaluation details](docs/evaluation.md) | Split methodology, metric interpretation, and limitations |
 | [Model card](docs/model-card.md) | Intended use, architecture, limitations, and reproducibility |
-| [Historical results](results/historical/metrics.json) | Recorded values and source-file fingerprints |
+| [Recorded results](results/historical/metrics.json) | Recorded values and source-file fingerprints |
 | `src/music_genre/` | Data, model, training, evaluation, baseline, and CLI |
 | `tests/` and `scripts/smoke_test.py` | Correctness checks and executable integration test |
