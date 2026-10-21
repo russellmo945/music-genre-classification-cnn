@@ -24,5 +24,3 @@ python scripts/smoke_test.py
 ```
 
 The smoke test uses temporary synthetic images and feature rows. Real-data training requires a separately downloaded dataset. Run outputs belong under `runs/`; data and checkpoints are excluded by `.gitignore`.
-
-The GitHub Actions workflow runs unit and integration checks on pushes and pull requests. The initial hosted run passed on October 3, 2026; [validation.json](validation.json) records that run and the local validation environment.

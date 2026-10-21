@@ -10,7 +10,7 @@ Input: RGB 64 × 64. Six blocks of 3 × 3 convolution (padding 1), ReLU, 2 × 2 
 
 ## Reproducibility
 
-Run commands from the repository root. Dependencies are bounded in `pyproject.toml`; the tested environment is recorded in `docs/validation.json`. Training seeds Python, NumPy, and PyTorch before model construction. CUDA backend settings reduce nondeterminism but do not guarantee identical results across devices or library versions. Save the run's config, environment, manifest, checkpoint, history, and evaluation JSON together.
+Run commands from the repository root. Dependencies are bounded in `pyproject.toml`. Training seeds Python, NumPy, and PyTorch before model construction. CUDA backend settings reduce nondeterminism but do not guarantee identical results across devices or library versions. Save the run's config, environment, manifest, checkpoint, history, and evaluation JSON together.
 
 Inference requires a checkpoint created by this package. Pretrained weights are not bundled. Loading uses PyTorch's weights-only mode. Track scores average slice softmax vectors and are not calibrated probability estimates. The image input must use compatible rendering and preprocessing.
 

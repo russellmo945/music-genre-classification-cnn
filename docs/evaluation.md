@@ -39,9 +39,7 @@ Each run saves its configuration, environment, manifest, training history, and v
 
 Preprocessing is explicit in the package: optional near-white border cropping, vertical slicing, and resizing are applied consistently during training and prediction. The notebook includes a separate cropping experiment, but its training loader reads the `images_original` directory.
 
-## Validation and next steps
-
-Unit and synthetic integration tests check pipeline execution, split integrity, preprocessing, checkpoint loading, and evaluation behavior. They do not measure music-classification performance. The GitHub Actions test run on October 3, 2026 passed; see [validation records](validation.json).
+## Further experiments
 
 Next experiments should benchmark the track-disjoint protocol, repeat across seeds, inspect per-genre errors, standardize audio rendering, and check artist overlap and duplicate recordings. Track-disjoint splitting alone does not establish artist-disjoint generalization.
 
