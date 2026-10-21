@@ -17,7 +17,3 @@ Inference requires a checkpoint created by this package. Historical checkpoints 
 ## Limitations
 
 GTZAN is small and has documented duplication and labeling issues. A genre label is an imperfect simplification of musical style. Image color maps, borders, labels, and rendering settings can become shortcuts. Local audio conversion uses 128 mel bands, an upper frequency capped at 8 kHz / Nyquist, log-power scaling, and an axis-free magma image; it is not pixel-identical to the original plotted spectrogram export. Genre and recording-domain shift remain unmeasured.
-
-## Publication notes
-
-Keep this repository private until the team and course-sharing constraints are resolved. Add Russell's specific contributions only after confirming them; this package credits all four original team members. Dataset files, private paths in outputs, student IDs, graded annotations, and music recordings are excluded from the portfolio package. The archival notebook retains original source code, including legacy Colab paths, for transparency.

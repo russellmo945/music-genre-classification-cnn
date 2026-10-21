@@ -2,7 +2,7 @@
 
 **Audio classification · PyTorch · Experiment design · Reproducible evaluation**
 
-A ten-class music genre classifier that learns from mel-spectrogram images, developed for the University of Toronto's APS360 course in **January–April 2024**. This repository preserves the team experiment and adds a **2026 portfolio refactor** with a command-line pipeline, source-track-disjoint splits, checkpoint provenance, and automated tests.
+A ten-class music genre classifier that learns from mel-spectrogram images, developed for the University of Toronto's APS360 course in **January–April 2024**. This personal portfolio repository recreates the classifier in a **2026 implementation** with a command-line pipeline, source-track-disjoint splits, checkpoint provenance, and automated tests.
 
 The central question: **how well can a CNN distinguish musical genres from short visual representations of audio, and how should that performance be measured?**
 
@@ -86,9 +86,3 @@ Audio must contain the full requested interval. New audio rendering can differ f
 | [Historical results](results/historical/metrics.json) | Recorded values and source-file fingerprints |
 | `src/music_genre/` | Data, model, training, evaluation, baseline, and CLI |
 | `tests/` and `scripts/smoke_test.py` | Correctness checks and executable integration test |
-
-## Attribution
-
-Original APS360 Group 52 team: **Russell Mo, Finnick Sun, Kevin Li, and Nicolas Del Valle**. This repository presents a collaborative course project; it does not assign unverified individual contributions. The 2026 portfolio refactor was prepared with AI assistance and is separate from the original 2024 experiment.
-
-The annotated report is not redistributed because it contains student identifiers and feedback. Music assets and pretrained weights are not included. No open-source license is granted here; coursework code and third-party data retain their respective rights. Before making the repository public, confirm the team's publication agreement and the applicable course-sharing policy.

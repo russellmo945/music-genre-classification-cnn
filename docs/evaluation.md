@@ -1,6 +1,6 @@
 # Evaluation audit: historical experiment vs. portfolio refactor
 
-The source notebook and annotated group report were reviewed before packaging. References below use **zero-based cell indices in the supplied notebook**, before the archive's introductory cell was inserted. Source SHA-256 hashes are retained in `results/historical/metrics.json`.
+The source notebook and original project report were reviewed before packaging. References below use **zero-based cell indices in the supplied notebook**, before the archive's introductory cell was inserted. Source SHA-256 hashes are retained in `results/historical/metrics.json`.
 
 | Finding in the historical code | Consequence | Refactor |
 | --- | --- | --- |
