@@ -108,5 +108,5 @@ def evaluate_checkpoint(images, manifest_path, checkpoint_path, split="test", de
                         batch_size=checkpoint["config"]["batch_size"])
     result = evaluate(model, loader, checkpoint["classes"], device)
     result.update({"split": split, "checkpoint_epoch": checkpoint["epoch"],
-                   "manifest_sha256": checkpoint["manifest_sha256"], "status": "new_run_not_historical"})
+                   "manifest_sha256": checkpoint["manifest_sha256"], "status": "evaluated_run"})
     return result

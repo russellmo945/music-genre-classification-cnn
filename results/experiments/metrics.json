@@ -1,5 +1,5 @@
 {
-  "status": "historical_not_reproduced",
+  "status": "reported_experiment",
   "project_dates": "January\u2013April 2024",
   "source_sha256": {
     "APS360_Music_Genre_Classification_System.ipynb": "d87e83d4a6c64fa076e13bb266b968debac40a4619a1d337bfb4833a63b6bc0b",
@@ -21,5 +21,6 @@
     "stored_accuracy": 0.6535105551211884,
     "verified": false,
     "reason": "Assets, evaluated count, and portable label mapping unavailable"
-  }
+  },
+  "reproduction_status": "not independently reproduced"
 }

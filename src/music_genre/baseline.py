@@ -31,7 +31,7 @@ def run_baseline(csv_path: Path, manifest_path: Path, trees=1000, seed=42):
     model = RandomForestClassifier(n_estimators=trees, max_depth=10, random_state=seed, n_jobs=-1)
     # Trees do not need scaling: no normalization is fit on held-out data.
     model.fit(train[columns], train.label.map({g: i for i, g in enumerate(GENRES)}))
-    output = {"status": "new_run_not_historical", "split_unit": "source_track", "excluded_rows": excluded,
+    output = {"status": "evaluated_run", "split_unit": "source_track", "excluded_rows": excluded,
               "feature_columns": columns, "trees": trees, "max_depth": 10, "seed": seed}
     for split in ["validation", "test"]:
         part = frame[frame.split == split]

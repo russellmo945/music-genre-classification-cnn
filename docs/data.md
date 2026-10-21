@@ -1,6 +1,6 @@
 # Data setup
 
-The original project used the [GTZAN music genre dataset on Kaggle](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification). Download it yourself under the provider's terms. Do not commit recordings or dataset archives.
+The project uses the [GTZAN music genre dataset on Kaggle](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification). Download it yourself under the provider's terms. Do not commit recordings or dataset archives.
 
 Expected local layout:
 
@@ -20,7 +20,7 @@ Canonical class order: blues, classical, country, disco, hiphop, jazz, metal, po
 
 Each image is split into 32 equal-width vertical pieces and resized to RGB 64 × 64. Images are decoded on demand. The default crop removes near-white outer margins. This heuristic does not reliably remove plot labels or axes: inspect your dataset's images before running experiments, and change preprocessing consistently if needed. Blank images and images narrower than the slice count fail explicitly.
 
-The nominal dataset contains 1,000 tracks; the archived notebook recorded 31,968 slices, consistent with 999 loaded images at 32 slices each. This repository does not guess which source image was absent. Your manifest is the authority for your run's counts.
+The nominal dataset contains 1,000 tracks; the recorded experiment contains 31,968 slices, consistent with 999 loaded images at 32 slices each. This repository does not guess which source image was absent. Your manifest is the authority for your run's counts.
 
 The feature baseline uses the same manifest and excludes CSV rows whose source tracks are absent from it, reporting that count. It requires numeric, finite features and complete CSV coverage for all manifest tracks. No scaler is needed for the tree baseline.
 

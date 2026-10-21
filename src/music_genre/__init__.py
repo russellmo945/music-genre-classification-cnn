@@ -1,3 +1,3 @@
-"""Music genre classification: a portfolio refactor of an APS360 team project."""
+"""Music genre classification with spectrograms, CNNs, and feature baselines."""
 
 __version__ = "0.1.0"

@@ -16,4 +16,4 @@ Inference requires a checkpoint created by this package. Pretrained weights are 
 
 ## Limitations
 
-GTZAN is small and has documented duplication and labeling issues. A genre label is an imperfect simplification of musical style. Image color maps, borders, labels, and rendering settings can become shortcuts. Local audio conversion uses 128 mel bands, an upper frequency capped at 8 kHz / Nyquist, log-power scaling, and an axis-free magma image; it is not pixel-identical to the original plotted spectrogram export. Genre and recording-domain shift remain unmeasured.
+GTZAN is small and has documented duplication and labeling issues. A genre label is an imperfect simplification of musical style. Image color maps, borders, labels, and rendering settings can become shortcuts. Local audio conversion uses 128 mel bands, an upper frequency capped at 8 kHz / Nyquist, log-power scaling, and an axis-free magma image; it is not pixel-identical to the plotted spectrogram export used in the experiment notebook. Genre and recording-domain shift remain unmeasured.

@@ -4,8 +4,6 @@
 
 A deep learning project that classifies music into **10 genres** using mel-spectrogram images. The project explores spectrogram preprocessing, configurable CNN architectures, hyperparameter tuning, and evaluation on GTZAN and an external music collection.
 
-**Project period: January–April 2024**
-
 ## Project highlights
 
 - Prepared approximately **32,000 spectrogram segments** using 32-way slicing and **64 × 64** RGB resizing.
@@ -53,7 +51,7 @@ python scripts/smoke_test.py
 
 The smoke test checks the full workflow using synthetic data. Download GTZAN separately to train a model; pretrained weights are not bundled.
 
-Download the dataset separately and follow [data setup](docs/data.md). Then:
+Follow [data setup](docs/data.md), then run:
 
 ```bash
 music-genre prepare --images data/gtzan/images_original --out data/splits.json
@@ -80,9 +78,10 @@ Audio must contain the full requested interval. New audio rendering can differ f
 | File / directory | Purpose |
 | --- | --- |
 | [Project walkthrough](notebooks/02_project_walkthrough.ipynb) | Guided introduction to data, architecture, and evaluation |
-| [Experiment notebook](notebooks/01_original_experiment.ipynb) | CNN experiments, preprocessing, and external-audio evaluation |
+| [Experiment notebook](notebooks/01_experiments.ipynb) | CNN experiments, preprocessing, and external-audio evaluation |
+| [Hyperparameter experiments](docs/experiments.md) | Settings for the 15 named CNN configurations |
 | [Evaluation details](docs/evaluation.md) | Split methodology, metric interpretation, and limitations |
 | [Model card](docs/model-card.md) | Intended use, architecture, limitations, and reproducibility |
-| [Recorded results](results/historical/metrics.json) | Recorded values and source-file fingerprints |
+| [Recorded results](results/experiments/metrics.json) | Recorded values and source-file fingerprints |
 | `src/music_genre/` | Data, model, training, evaluation, baseline, and CLI |
 | `tests/` and `scripts/smoke_test.py` | Correctness checks and executable integration test |

@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aps360-music-genre"
+name = "music-genre-classification-cnn"
 version = "0.1.0"
 description = "A documented GTZAN CNN experiment with track-disjoint training and evaluation"
 requires-python = ">=3.11"

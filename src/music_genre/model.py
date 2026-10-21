@@ -1,4 +1,4 @@
-"""The six-block CNN topology selected in the original model-set-13 experiment."""
+"""The six-block CNN architecture selected in the model-set-13 experiment."""
 
 import torch
 from torch import nn

@@ -20,5 +20,10 @@
     "notebook_schema": "both valid"
   },
   "real_dataset_training": "not run",
-  "github_actions": "configured; hosted run not yet verified"
+  "github_actions": {
+    "status": "passed",
+    "date": "2026-10-03",
+    "commit": "44b156d8a997434c9b1679a15ef2fce72bacd6c4",
+    "run_id": 37159315788
+  }
 }
